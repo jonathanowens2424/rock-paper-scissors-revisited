@@ -1,5 +1,8 @@
 // determine computer's choice of either rock, paper or scissors
 
+let playerScore = 0;
+let computerScore = 0;
+
 function getComputerChoice() {
   const randomNumber = Math.random();
 
@@ -22,10 +25,13 @@ function determineResults(computerChoice, userChoice) {
     if (computerChoice === "paper") {
       gameResults.textContent =
         "You picked rock. The computer picked paper. You lost!";
+      computerScore++;
     } else if (computerChoice === "scissors") {
       gameResults.textContent =
         "You picked rock. The computer picked scissors. You won!";
+      playerScore++;
     }
+    scoreBoard.textContent = `Player Score: ${playerScore} Computer Score: ${computerScore}`;
     return;
   }
 
@@ -33,10 +39,13 @@ function determineResults(computerChoice, userChoice) {
     if (computerChoice === "scissors") {
       gameResults.textContent =
         "You picked paper. The computer picked scissors. You lost!";
+      computerScore++;
     } else if (computerChoice === "rock") {
       gameResults.textContent =
         "You picked paper. The computer picked rock. You won!";
+      playerScore++;
     }
+    scoreBoard.textContent = `Player Score: ${playerScore} Computer Score: ${computerScore}`;
     return;
   }
 
@@ -44,10 +53,13 @@ function determineResults(computerChoice, userChoice) {
     if (computerChoice === "rock") {
       gameResults.textContent =
         "You picked scissors. The computer picked rock. You lost!";
+      computerScore++;
     } else if (computerChoice === "paper") {
       gameResults.textContent =
         "You picked scissors. The computer picked paper. You won!";
+      playerScore++;
     }
+    scoreBoard.textContent = `Player Score: ${playerScore} Computer Score: ${computerScore}`;
     return;
   }
 }
@@ -55,6 +67,7 @@ const paperButton = document.querySelector("#paper");
 const rockButton = document.querySelector("#rock");
 const scissorsButton = document.querySelector("#scissors");
 const gameResults = document.querySelector("#gameResults");
+const scoreBoard = document.querySelector("#scoreBoard");
 
 paperButton.addEventListener("click", () => {
   const computerChoice = getComputerChoice();
