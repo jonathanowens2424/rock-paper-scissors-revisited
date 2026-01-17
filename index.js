@@ -15,6 +15,14 @@ function getComputerChoice() {
   }
 }
 
+function checkIfSomeoneWon() {
+  if (playerScore === 5) {
+    scoreBoard.textContent = `Congratulations! You won!`;
+  } else if (computerScore === 5) {
+    scoreBoard.textContent = `Aw man. The computer won instead of you!`;
+  }
+}
+
 function determineResults(computerChoice, userChoice) {
   if (computerChoice === userChoice) {
     gameResults.textContent = "Tie";
@@ -32,6 +40,7 @@ function determineResults(computerChoice, userChoice) {
       playerScore++;
     }
     scoreBoard.textContent = `Player Score: ${playerScore} Computer Score: ${computerScore}`;
+    checkIfSomeoneWon();
     return;
   }
 
@@ -46,6 +55,7 @@ function determineResults(computerChoice, userChoice) {
       playerScore++;
     }
     scoreBoard.textContent = `Player Score: ${playerScore} Computer Score: ${computerScore}`;
+    checkIfSomeoneWon();
     return;
   }
 
@@ -60,6 +70,7 @@ function determineResults(computerChoice, userChoice) {
       playerScore++;
     }
     scoreBoard.textContent = `Player Score: ${playerScore} Computer Score: ${computerScore}`;
+    checkIfSomeoneWon();
     return;
   }
 }
@@ -68,6 +79,7 @@ const rockButton = document.querySelector("#rock");
 const scissorsButton = document.querySelector("#scissors");
 const gameResults = document.querySelector("#gameResults");
 const scoreBoard = document.querySelector("#scoreBoard");
+const resetButton = document.querySelector("#resetButton");
 
 paperButton.addEventListener("click", () => {
   const computerChoice = getComputerChoice();
