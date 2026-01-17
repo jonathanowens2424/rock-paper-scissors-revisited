@@ -95,3 +95,10 @@ scissorsButton.addEventListener("click", () => {
   const computerChoice = getComputerChoice();
   determineResults(computerChoice, "scissors");
 });
+
+resetButton.addEventListener("click", () => {
+  computerScore = 0;
+  playerScore = 0;
+  gameResults.textContent = ``;
+  scoreBoard.textContent = ``;
+});
