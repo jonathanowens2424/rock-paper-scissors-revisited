@@ -14,33 +14,39 @@ function getComputerChoice() {
 
 function determineResults(computerChoice, userChoice) {
   if (computerChoice === userChoice) {
-    console.log("Tie");
+    gameResults.textContent = "Tie";
     return;
   }
 
   if (userChoice === "rock") {
     if (computerChoice === "paper") {
-      console.log("You picked rock. The computer picked paper. You lost!");
+      gameResults.textContent =
+        "You picked rock. The computer picked paper. You lost!";
     } else if (computerChoice === "scissors") {
-      console.log("You picked rock. The computer picked scissors. You won!");
+      gameResults.textContent =
+        "You picked rock. The computer picked scissors. You won!";
     }
     return;
   }
 
   if (userChoice === "paper") {
     if (computerChoice === "scissors") {
-      console.log("You picked paper. The computer picked scissors. You lost!");
+      gameResults.textContent =
+        "You picked paper. The computer picked scissors. You lost!";
     } else if (computerChoice === "rock") {
-      console.log("You picked paper. The computer picked rock. You won!");
+      gameResults.textContent =
+        "You picked paper. The computer picked rock. You won!";
     }
     return;
   }
 
   if (userChoice === "scissors") {
     if (computerChoice === "rock") {
-      console.log("You picked scissors. The computer picked rock. You lost!");
+      gameResults.textContent =
+        "You picked scissors. The computer picked rock. You lost!";
     } else if (computerChoice === "paper") {
-      console.log("You picked scissors. The computer picked paper. You won!");
+      gameResults.textContent =
+        "You picked scissors. The computer picked paper. You won!";
     }
     return;
   }
@@ -48,6 +54,7 @@ function determineResults(computerChoice, userChoice) {
 const paperButton = document.querySelector("#paper");
 const rockButton = document.querySelector("#rock");
 const scissorsButton = document.querySelector("#scissors");
+const gameResults = document.querySelector("#gameResults");
 
 paperButton.addEventListener("click", () => {
   const computerChoice = getComputerChoice();
